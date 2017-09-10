@@ -1,39 +1,55 @@
 // an array with all of our cart items
 var cart = [];
 
+var source = $('#store-template').html();
+var template = Handlebars.compile(source);
 
 var updateCart = function() {
-    $('.shopping-cart').empty();
+    $('.cart-list').empty();
 
+    var totalPoints = 0;
     for (i = 0; i < cart.length; i++) {
+        var HTML = template(cart[i]);
+        $('.cart-list').append(HTML);
 
+        totalPoints += cart[i].price;
     }
-    // TODO: Write this function. In this function we render the page.
-    // Meaning we make sure that all our cart items are displayed in the browser.
-    // Remember to empty the "cart div" before you re-add all the item elements.
+    $('.total').empty();
+    $('.total').append(totalPoints);
+
 }
 
-
 var addItem = function(item) {
-    // TODO: Write this function. Remember this function has nothing to do with display. 
-    // It simply is for adding an item to the cart array, no HTML involved - honest ;-)
+    cart.push(item);
 }
 
 var clearCart = function() {
-    // TODO: Write a function that clears the cart ;-)
+    cart = [];
+    $('.cart-list').empty();
+    $('.total').html('0')
+
+    // cart.length = 0;
 }
 
 $('.view-cart').on('click', function() {
-    // TODO: hide/show the shopping cart!
+
+    var shoppingCart = $('.shopping-cart');
+    shoppingCart.toggle();
 });
 
 $('.add-to-cart').on('click', function() {
     // TODO: get the "item" object from the page
+
+    var item = $(this).closest('.card').data();
+
+    console.log(item);
+
     addItem(item);
     updateCart();
 });
 
 $('.clear-cart').on('click', function() {
+
     clearCart();
 });
 
