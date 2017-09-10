@@ -40,6 +40,7 @@ var removeItem = function(itemIndex) {
 var clearCart = function() {
     cart = [];
     updateCart();
+
 }
 
 $('.view-cart').on('click', function() {
@@ -48,7 +49,7 @@ $('.view-cart').on('click', function() {
     shoppingCart.toggle();
 });
 
-$('.add-to-cart').on('click', function() {
+$('.shopping-cart-table').on('click', '.add-to-cart', function() {
     // TODO: get the "item" object from the page
 
     var item = $(this).closest('.card').data();
