@@ -25,8 +25,7 @@ var addItem = function(item) {
 
 var clearCart = function() {
     cart = [];
-    $('.cart-list').empty();
-    $('.total').html('0')
+    updateCart();
 
     // cart.length = 0;
 }
@@ -37,7 +36,7 @@ $('.view-cart').on('click', function() {
     shoppingCart.toggle();
 });
 
-$('.add-to-cart').on('click', function() {
+$('.shopping-cart-table').on('click', '.add-to-cart', function() {
     // TODO: get the "item" object from the page
 
     var item = $(this).closest('.card').data();
