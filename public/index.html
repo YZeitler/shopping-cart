@@ -153,58 +153,71 @@
         </div>
     </div>
 
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg pull-right btn-item-form" data-toggle="modal" data-target="#myModal">Add New Item</button>
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg pull-right btn-item-form" data-toggle="modal" data-target="#myModal">Add New Item</button>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Submit your item here</h4>
-      </div>
-      <div class="modal-body">
-          <h5>Item Name:</h5>
-          <input id="new-item-name" type="text" placeholder="ex. Wooden Chair">
-          <h5>Item Price:</h5>
-          <input id="new-item-price" type="text" placeholder="ex. 36">
-          <h5>Item Picture (link)</h5>
-          <input id="new-item-pic" type="text" placeholder="ex. http://google.com/images/Wooden-Chair.img">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Submit your item here</h4>
+                </div>
+                <div class="modal-body">
+                    <h5>Item Name:</h5>
+                    <input id="new-item-name" type="text" placeholder="ex. Wooden Chair">
+                    <h5>Item Price:</h5>
+                    <input id="new-item-price" type="text" placeholder="ex. 36">
+                    <h5>Item Picture (link)</h5>
+                    <input id="new-item-pic" type="text" placeholder="ex. http://google.com/images/Wooden-Chair.img">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-submit-item" data-dismiss="modal">Submit</button>
+                </div>
+            </div>
+
         </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default btn-submit-item" data-dismiss="modal">Submit</button>
-      </div>
     </div>
-
-  </div>
-</div>
 
     <script id="store-template" type="text/x-handlebars-template">
         <p>
             <span> {{ name }} ({{quantity }}) - ${{ price }}   </span>
             <a class="remove" href="#">delete</a>
+            <div class="input"> Update Quantity
+                <select>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+            </div>
         </p>
     </script>
 
     <script id="item-template" type="text/x-handlebars-template">
         <div class="col-md-4">
-                <div class="card-container">
-                    <div class="card item" item data-name="{{ name }}" data-price="{{ price }}">
-                        <div class="pricebox">
-                            <p class="price"> ${{ price }} </p>
-                        </div>
-                        <div class="buybox">
-                            <p class="add-to-cart"> ADD TO CART </p>
-                        </div>
-                        <div class="card-inner">
-                            <img src="{{ picture }}" class="proimage" />
-                        </div>
+            <div class="card-container">
+                <div class="card item" item data-name="{{ name }}" data-price="{{ price }}">
+                    <div class="pricebox">
+                        <p class="price"> ${{ price }} </p>
+                    </div>
+                    <div class="buybox">
+                        <p class="add-to-cart"> ADD TO CART </p>
+                    </div>
+                    <div class="card-inner">
+                        <img src="{{ picture }}" class="proimage" />
                     </div>
                 </div>
             </div>
+        </div>
     </script>
 
     <script type="text/javascript" src="jquery/dist/jquery.js"></script>
