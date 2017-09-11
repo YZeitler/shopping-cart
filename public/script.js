@@ -1,9 +1,9 @@
 // Local Storage Init
 var STORAGE_ID = 'shopping-cart';
-var saveToLocalStorage = function () {
+var saveToLocalStorage = function() {
     localStorage.setItem(STORAGE_ID, JSON.stringify(cart));
 };
-var getFromLocalStorage = function () {
+var getFromLocalStorage = function() {
     return JSON.parse(localStorage.getItem(STORAGE_ID) || '[]');
 };
 
@@ -25,7 +25,7 @@ var updateCart = function() {
         $('.cart-list').append(HTML);
         totalPrice += cart[i].price * cart[i].quantity;
         // Set quantity dropdown position on current quantity
-        $('.cart-list').find('select').last().val(cart[i].quantity);  
+        $('.cart-list').find('select').last().val(cart[i].quantity);
     }
     $('.total').html(totalPrice);
 }
@@ -90,11 +90,11 @@ $('.clear-cart').on('click', function() {
 });
 
 $('.cart-list').on('click', '.remove', function() {
-    var itemIndex = $(this).closest('p').index(); // get item's index
+    var itemIndex = $(this).closest('.cart-item').index(); // get item's index
     removeItem(itemIndex);
 });
 
-$('.shopping-cart').on('change', 'select', function(){
+$('.shopping-cart').on('change', 'select', function() {
     var index = $(this).closest('.cart-item').index();
     var value = $(this)[0].value;
     changeQuantity(index, value);
