@@ -1,12 +1,13 @@
 var itemTemplate = Handlebars.compile($('#item-template').html());
 
 $('.btn-submit-item').click(function() {
-    if(cart.length % 3 === 0) {
+    if (itemlength % 3 === 0) {
         addRow();
     }
     var $lastRow = $('.shopping-cart-table').find('.row').last();
 
     var newItem = newItemObj();
+    itemlength++
 
     $('.shopping-cart-table').find('.row').last().append(itemTemplate(newItem));
 });

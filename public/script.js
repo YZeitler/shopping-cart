@@ -10,6 +10,8 @@ var getFromLocalStorage = function() {
 // an array with all of our cart items
 var cart = [];
 
+var itemlength = 6
+
 var source = $('#store-template').html();
 var template = Handlebars.compile(source);
 
